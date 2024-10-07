@@ -91,7 +91,7 @@ Future<AppVersionData> fetchIOS({PackageInfo? packageInfo, String? appleId, Stri
     final jsonResult = json.decode(response.body);
     final List results = jsonResult['results'];
     if (results.isEmpty) {
-      AppVersionData(
+      return AppVersionData(
           storeVersion: '0', storeUrl: '', localVersion: packageInfo?.version, targetPlatform: TargetPlatform.iOS);
       // throw "Application not found in Apple Store, verify your app id.";
     } else {
